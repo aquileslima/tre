@@ -14,8 +14,8 @@ const PowerUp = () => {
       'board-buttons': function (t: any, options: any) {
         return [{
           icon: {
-            dark: '/vite.svg',
-            light: '/vite.svg'
+            dark: '/icon.png',
+            light: '/icon.png'
           },
           text: 'Time Tracker Dashboard',
           callback: function (t: any) {
