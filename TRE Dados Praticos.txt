@@ -1,0 +1,19 @@
+HOSTINGER
+
+ROOT
+ssh root@31.97.170.95
+hosdopT-21-90
+
+
+TRELLO
+Chave:26bd4db4556c241d92dfc34ef34f1845
+Segredo:641f43ddd4fd8763ccba3c3c31dc3190af1801df31d320278c51910181fe0806
+
+
+GITHUB
+https://github.com/aquileslima/tre
+
+
+SITE:
+tre.arlprime.com
+tipo A, apontado para 31.97.170.95, TTL 300
