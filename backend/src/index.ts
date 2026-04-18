@@ -2,12 +2,18 @@ import express from 'express';
 import cors from 'cors';
 import { PrismaClient } from '@prisma/client';
 
+import path from 'path';
+
 const app = express();
 const prisma = new PrismaClient();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+
+// Serve static frontend files
+const frontendPath = path.join(__dirname, '../../frontend/dist');
+app.use(express.static(frontendPath));
 
 // Trello Webhook Verification (HEAD)
 app.head('/api/webhook', (req, res) => {
@@ -95,6 +101,11 @@ app.get('/api/dashboard/:boardId', async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch dashboard data' });
   }
+});
+
+// Catch-all to serve React app for non-API routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
 // Start Server
