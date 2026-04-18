@@ -8,15 +8,15 @@ RUN npm run build
 FROM node:20-alpine AS backend-builder
 WORKDIR /app/backend
 COPY backend/package*.json ./
-RUN npm install
+RUN npm install --include=dev
 COPY backend/ ./
 RUN npx prisma generate
-RUN npm run build
+RUN ./node_modules/.bin/tsc
 
 FROM node:20-alpine AS runner
 WORKDIR /app
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 COPY --from=backend-builder /app/backend/dist ./backend/dist
 COPY --from=backend-builder /app/backend/node_modules ./backend/node_modules
