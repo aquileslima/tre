@@ -11,7 +11,7 @@ COPY backend/package*.json ./
 RUN npm install --include=dev
 COPY backend/ ./
 RUN npx prisma generate
-RUN ./node_modules/.bin/tsc
+RUN node ./node_modules/typescript/bin/tsc
 
 FROM node:20-alpine AS runner
 WORKDIR /app

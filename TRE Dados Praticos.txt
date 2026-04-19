@@ -17,3 +17,7 @@ https://github.com/aquileslima/tre
 SITE:
 tre.arlprime.com
 tipo A, apontado para 31.97.170.95, TTL 300
+
+
+FlowMetrics
+FlowMetrics@arlprime.com
