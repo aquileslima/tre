@@ -1,9 +1,8 @@
 import { useEffect, useState, useMemo } from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { Clock, Users, Tags, Filter } from 'lucide-react';
 
 const Dashboard = () => {
-  const [boardId, setBoardId] = useState<string | null>(null);
   const [cards, setCards] = useState<any[]>([]);
   const [logs, setLogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -15,7 +14,7 @@ const Dashboard = () => {
       
       try {
         const board = await t.board('id', 'name');
-        setBoardId(board.id);
+        void board; // board.id used implicitly
 
         // Fetch cards from Trello
         const trelloCards = await t.cards('id', 'name', 'labels', 'members');

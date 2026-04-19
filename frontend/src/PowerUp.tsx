@@ -11,7 +11,7 @@ const PowerUp = () => {
     if (!window.TrelloPowerUp) return;
 
     window.TrelloPowerUp.initialize({
-      'board-buttons': function (t: any, options: any) {
+      'board-buttons': function (_t: any, _options: any) {
         return [{
           icon: {
             dark: '/icon.png',
@@ -27,17 +27,17 @@ const PowerUp = () => {
           }
         }];
       },
-      'show-settings': function (t: any, options: any) {
+      'show-settings': function (t: any, _options: any) {
         return t.popup({
           title: 'Configurações de Monitoramento',
           url: '/settings',
           height: 400,
         });
       },
-      'card-badges': function (t: any, options: any) {
+      'card-badges': function (t: any, _options: any) {
         // Here we could fetch from our backend the time spent for this card.
         // Returning a placeholder for now.
-        return t.card('id', 'name').then(async (card: any) => {
+        return t.card('id', 'name').then(async (_card: any) => {
           return [{
             text: 'Loading...',
             color: 'blue'
